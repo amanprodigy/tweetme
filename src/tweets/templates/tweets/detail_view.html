@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    Tweet detail
+{% endblock %}
+
+{% block content %}
+    <h1>Tweet detail</h1>
+    <p >{{tweet.content }}</p>
+    <br/>
+    <span class="caption">
+        {{ tweet.created_at | timesince }} ago by {{ tweet.user.username }}
+    </span>
+    <br/>
+    <a href="{% url 'tweets:update' pk=tweet.id %}">Edit</a>
+    <a href="{% url 'tweets:delete' pk=tweet.id %}">Delete</a>
+{% endblock %}

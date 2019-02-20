@@ -1,0 +1,69 @@
+a{
+    color: #39CCCC;
+}
+a:link {
+    color: #39CCCC;
+}
+a:hover {
+    color: #7FDBFF;
+}
+#header{
+    padding: 10px;
+    background-color: #39CCCC;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    height: 20px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 60px;
+}
+.user{
+    font-size: large;
+    float: right;
+}
+.user {
+    color: white;
+    text-decoration: none;
+}
+.user a{
+    color: white;
+}
+
+.footer{
+    padding: 5px;
+    background-color: ghostwhite;
+    color: darkgray;
+    position: absolute;
+    bottom: 2px;
+    font-size: small;
+    vertical-align: center;
+    text-align: center;
+    float: none;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+}
+
+ul{
+    padding: 2px;
+}
+ul li{
+    padding: 2px;
+    margin-top: 3px;
+}
+.errorlist{
+    color: red;
+    font-style: italic;
+}
+.caption{
+    font-style: italic;
+    font-size: small;
+    color: #BBB;
+}
+.content{
+    color: #013;
+    font-size: large;
+}

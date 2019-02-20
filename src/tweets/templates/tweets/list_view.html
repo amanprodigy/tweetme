@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  All The Tweets
+{% endblock %}
+
+{% block content %}
+
+<div class="row" style="width: 18rem;">
+  <div class="card-body">
+  </div>
+</div>
+
+<div class="row">
+
+    <div class="col col-md-3 col-sm-3 col-xs-3">
+        <div  style="width: 18rem;">
+          {% comment %}<img src="#" class="card-img-top" alt="no-image">{% endcomment %}
+          <div class="card-body">
+              <h5 class="card-title">{{request.user.username}}</h5>
+            <p class="card-text">Read tweets from others and post your own</p>
+            <a href="{% url 'tweets:create' %}" class="btn btn-primary">Post New Tweet</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="col col-md-9 col-sm-9 col-xs-9 ml-10">
+        {% if not request.GET.search %}
+        {% include "tweets/form.html" with form=tweet_form btn_title='Post tweet' action='{{action_url}}' %}
+        <hr/>
+        {% endif %}
+        {% for tweet in tweets %}
+        <div class="media">
+            {% if tweet.image %}
+            <img src="favicon.ico" class="align-self-start mr-3" alt="no-image">
+            {% endif %}
+
+            <div class="media-body">
+                <p class="content">
+                    {{ tweet.content }}
+                </p>
+                <span class="caption">
+                    via {{ tweet.user.username }} {{ tweet.created_at | timesince }} ago | <a href="{{tweet.get_absolute_url}}">View</a>
+                </span>
+            </div>
+        </div>
+        <hr/>
+        {% empty %}
+            {% if request.GET.search %}
+                <p>No tweets found</p>
+            {% else %}
+                <p>No tweets yet</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

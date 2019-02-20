@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Post your message{% endblock %}
+<hr/>
+{% block content %}
+    <h1>Post Tweet</h1>
+    {% include "tweets/form.html" with form=form btn_title='Post tweet' action='{{action_url}}' %}
+    <hr>
+    <span class="linkbuttons"><a href="{% url 'home' %}" >Back</a></span>
+{% endblock %}

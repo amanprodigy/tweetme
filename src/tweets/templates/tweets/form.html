@@ -1,0 +1,8 @@
+{% load  crispy_forms_tags %}
+<form action="{{action_url}}" method="post" accept-charset="utf-8">
+    <div class="form-group">
+        {{ form | crispy }}
+    </div>
+    {% csrf_token %}
+    <input class="btn btn-primary mb-2" type="submit" class="button" value="{{ btn_title }}">
+</form>

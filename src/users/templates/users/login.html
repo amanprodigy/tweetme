@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+  <h1>Login</h1>
+  <form class="form" action="." method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{request.GET.next}}" />
+      <p><input class="button" type="submit" value="Log in"></p>
+      {% if login_error %}
+          <p class="error">{{login_error}}</p>
+      {% endif %}
+  </form>
+  <p>Dont have an account? <a href="{% url 'users:register' %}">Register here</a></p>
+{% endblock %}
